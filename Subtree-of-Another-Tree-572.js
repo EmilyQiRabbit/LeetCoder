@@ -23,6 +23,7 @@ var isSubtree = function(s, t) {
     let str1 = changeTreeToString(node.left, setMap);
     let str2 = changeTreeToString(node.right, setMap);
     let str3 = node.val + (str1.length ? '/' + str1 : '') + (str2.length ? '/' + str2 : '')
+    // 自下而上的统计
     if (setMap) {
       treeMap[str1] = true
       treeMap[str2] = true

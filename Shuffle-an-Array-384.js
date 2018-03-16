@@ -17,7 +17,7 @@ Solution.prototype.reset = function() {
  * Returns a random shuffling of the array.
  * @return {number[]}
  */
-Solution.prototype.shuffle = function() {
+Solution.prototype.shuffle = function() { // 一个 shuffle 的方法
   let nums = this.origin // Accept ?! What F...不懂.....
   let rand = new Array(nums.length);
   for (let i = 0; i < nums.length; i++){

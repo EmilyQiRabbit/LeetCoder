@@ -1,1 +1,1 @@
-# LeetCode 解题 -- Using JavaScript
+### LeetCode & JavaScript

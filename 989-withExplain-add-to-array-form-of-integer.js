@@ -1,5 +1,3 @@
-
-
 /**
  * @Topic Array
  * @Question For a non-negative integer X, 

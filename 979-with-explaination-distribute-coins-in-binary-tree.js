@@ -1,5 +1,5 @@
 /**
- * @Topic two pointers
+ * @Topic two pointers - Medium
  * @Question Given the root of a binary tree with N nodes,
  *           each node in the tree has node.val coins, and there are N coins total.
  *           In one move, we may choose two adjacent nodes and move one coin from one node to another. 

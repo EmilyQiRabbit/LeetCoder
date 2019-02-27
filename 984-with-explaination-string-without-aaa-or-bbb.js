@@ -1,5 +1,5 @@
 /**
- * @Topic Greedy
+ * @Topic Greedy - Easy
  * @Question Given two integers A and B, return any string S such that:
              1. S has length A + B and contains exactly A 'a' letters, and exactly B 'b' letters;
              2. The substring 'aaa' does not occur in S;

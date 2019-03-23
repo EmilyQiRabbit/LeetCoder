@@ -43,3 +43,30 @@ var subarraysDivByK = function(A, K) {
   })
   return count
 };
+
+// 使用 hash 的解法如下
+
+/**
+ * @param {number[]} A
+ * @param {number} K
+ * @return {number}
+ */
+var subarraysDivByK = function(A, K) {
+  const hash = {0: 1}
+  let result = 0, sum = 0
+  A.forEach((a) => {
+      sum += a
+      let remainder = sum % K
+      if (remainder < 0) {
+          remainder += K
+      }
+      result += hash[remainder] || 0
+      // 记录
+      if(!hash[remainder]){
+          hash[remainder] = 1
+      } else {
+          hash[remainder]++
+      }
+  })
+  return result
+};

@@ -110,13 +110,14 @@ var split_and_find_max_sum = (A, prefixSum, L, M) => {
 var maxSumTwoNoOverlap = function(A, L, M) {
   const prefixSum = [], length = A.length
   prefixSum[0] = A[0]
-  for(let i=1; i<length; i++) {
-      prefixSum[i] = prefixSum[i-1] + A[i]
+  for (let i=1; i<length; i++) {
+    prefixSum[i] = prefixSum[i-1] + A[i]
   }
   if (L + M === length){
-      return prefixSum[length - 1];
+    return prefixSum[length - 1];
   }
-  return Math.max(split_and_find_max_sum(A, prefixSum, L, M), split_and_find_max_sum(A, prefixSum, M, L));
+  return Math.max(split_and_find_max_sum(A, prefixSum, L, M), 
+                  split_and_find_max_sum(A, prefixSum, M, L));
 };
 
 
@@ -124,21 +125,21 @@ var split_and_find_max_sum = (A, prefixSum, L, M) => {
   const length = A.length
   const leftMax = new Array(length), rightMax = new Array(length);
   for (let i = L-1; i<length; i++) {
-      const tmpSum = prefixSum[i] - prefixSum[i - L + 1] + A[i - L + 1];
-      if (i === L - 1) {
-          leftMax[i] = tmpSum;
-      } else {
-          leftMax[i] = Math.max(leftMax[i - 1], tmpSum);
-      }
+    const tmpSum = prefixSum[i] - prefixSum[i - L + 1] + A[i - L + 1];
+    if (i === L - 1) {
+      leftMax[i] = tmpSum;
+    } else {
+      leftMax[i] = Math.max(leftMax[i - 1], tmpSum);
+    }
   }
   
   for (let i = length - M; i >= 0; i--) {
-      const tmpSum = prefixSum[i + M - 1] - prefixSum[i] + A[i];
-      if (i === length - M) {
-        rightMax[i] = tmpSum;
-      } else {
-        rightMax[i] = Math.max(rightMax[i + 1], tmpSum);
-      }
+    const tmpSum = prefixSum[i + M - 1] - prefixSum[i] + A[i];
+    if (i === length - M) {
+      rightMax[i] = tmpSum;
+    } else {
+      rightMax[i] = Math.max(rightMax[i + 1], tmpSum);
+    }
   }
   
   let sum = -Infinity

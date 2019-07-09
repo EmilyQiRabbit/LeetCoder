@@ -30,7 +30,7 @@ hint:
 
 We want to always choose the most common or second most common element to write next. What data structure allows us to query this effectively?
 
-## 解答
+## 优质解答
 
 [代码来源](https://leetcode.com/problems/distant-barcodes/discuss/299225/Python-Set-Odd-Position-and-Even-Position)
 
@@ -53,7 +53,7 @@ class Solution(object):
   * 要将数组中所有数字，按照其**出现次数的多少**顺序排列。
 
 * 关键点 2: 如何组合
-  * 方法 1: 总是优先排列出现次数最多或者第二多的数字
+  * 方法 1: 总是优先将出现次数最多或者第二多的数字插入重组的数组
   * 方法 2: 间隔一位插入数字，也就是上面解答中的方式，由于题目保证一定有一个解，所以这种方式也是可行的。
 
-*哎呀果然 python 大法好...JavaScript 数据结构太少了，要想实现这个还真的挺麻烦的...我哭哭...*
+*...小声 bb：哎呀果然 python 大法好...JavaScript 提供的数据结构比较少，要想实现这个还比较麻烦...我哭哭...*

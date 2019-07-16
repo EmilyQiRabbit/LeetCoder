@@ -17,7 +17,7 @@ Output: [[1,2,null,4],[6],[7]]
 
 ## 解答
 
-这道题目需要使用 dfs 算法，即深度优先搜索。一开始自己写的 js 代码是：
+这道题目需要使用 dfs（深度优先搜索）算法。一开始自己写的 js 代码是：
 
 ```js
 /**
@@ -56,11 +56,11 @@ const dfs = (node, to_delete, res, parent, type) => {
 }
 ```
 
-在这里，我使用了 es6 的 Map 数据结构，将需要保存的节点作为 Map 的 key 保存起来，然后当这个节点的 val 和 to_delete 的元素相等时，再将这个节点 delete 掉。
+我使用了 es6 的 Map 数据结构，将需要保存在 forest 的节点作为 Map 的 key 保存起来，然后当这个节点的 val 和 to_delete 的元素相等时，再将这个节点从 map 中 delete 掉。
 
-但其实这个 res.set 和 res.delete 的操作略显冗余，同时设置 prarent.left 和 parent.right 这样实现也不太完美。应该有办法可以更加简单的实现。
+但其实这个先 res.set 然后 res.delete 的操作显得冗余，同时需要做判断并设置 prarent.left 和 parent.right，这样也不太完美。应该有办法可以更加简洁的实现。
 
-**参考了大神的代码：**
+**参考了[大神的代码](https://leetcode.com/problems/delete-nodes-and-return-forest/discuss/328853/JavaPython-Recursion-Solution)：**
 
 ```python
 # Definition for a binary tree node.
@@ -78,9 +78,10 @@ class Solution(object):
         def helper(root, is_root):
             if not root: return None
             root_deleted = root.val in to_delete_set
+            # 根据条件判断是否加入，而非先加后删
             if is_root and not root_deleted:
                 res.append(root)
-            # 如果这个节点被删了，那么它的子节点就是 root 了，合理！
+            # 如果这个节点被删了，那么它的子节点就是 forest 中的 root 了，合理！
             root.left = helper(root.left, root_deleted)
             root.right = helper(root.right, root_deleted)
             return None if root_deleted else root

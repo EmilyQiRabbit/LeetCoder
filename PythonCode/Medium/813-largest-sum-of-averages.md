@@ -23,7 +23,7 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 
 ## 答案
 
-[代码来自🔗](https://leetcode.com/problems/largest-sum-of-averages/discuss/122739/C%2B%2BJavaPython-Easy-Understood-Solution-with-Explanation)
+[源代码 🔗...](https://leetcode.com/problems/largest-sum-of-averages/discuss/122739/C%2B%2BJavaPython-Easy-Understood-Solution-with-Explanation)
 
 ```py
 class Solution(object):
@@ -43,5 +43,22 @@ class Solution(object):
         return search(len(A), K)
 ```
 
-> 好难啊这题 =。= 明天肥来写解题思路吧，因为我也没想清楚呢...
-> 反正是 dp，脑壳疼...
+## 解题思路
+
+这道题还是动态规划，但是如何“规划”有点不太好想。
+
+动态规划最重要的是要找到递推“公式”，也就是通过当前状态，如何得出下一个状态的公式。
+
+比如这道题，令 dp 是一个二维数组 `dp[N][K]`，其中 N 表示数组长度，K 表示分组个数。
+那么简单的推导出：`dp[3][2] = Max(dp[2][1] + 2, dp[1,1] + (2+1)/2)`。
+
+再深入一步，`dp[n][k]` 要怎么得出呢？
+那就应该是：`dp[x][k-1]`（其中 x 从 0 ~ n-1）+ 剩下的 n-x 个元素的平均值，这所有的可能（因为 x 可以从 0 到 n-1）中的最大值。
+
+于是写成代码就是：
+
+```py
+for i in range(n - 1, 0, -1):
+  cur += A[i]
+  memo[n, k] = max(memo[n, k], search(i, k - 1) + cur / float(n - i))
+```

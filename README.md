@@ -120,6 +120,8 @@
 
   Medium  1026-maximum-difference-between-node-and-ancestor.js
 
+  Medium  1353-Maximum-Number-of-Events-That-Can-Be-Attended.md
+
 ## PYTHON-CODE
 
   Easy  884-uncommon-words-from-two-sentences.md

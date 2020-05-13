@@ -58,3 +58,22 @@ function swap(arr, i, j) {
   arr[i] = arr[j];
   arr[j] = temp;
 }
+
+// 另一种更简单的快排，其时间复杂度为 nlog(n)，这种简单多了天啦噜...
+function quickSort1(arr) {
+  if (arr.length<=1) {return arr;}
+  var left = [],
+    right = [],
+    baseDot = Math.round(arr.length/2),
+    base = arr.splice(baseDot, 1)[0];
+
+  for (var i =0; i <arr.length; i++) {
+    if (arr[i] < base) {
+      left.push(arr[i])
+    }else {
+      right.push(arr[i])
+    }
+  }
+
+  return quickSort(left).concat([base], quickSort(right));
+}

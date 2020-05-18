@@ -51,3 +51,48 @@ var maxLevelSum = function(root) {
     return maxLevel
 };
 ```
+
+### BFS
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxLevelSum = function(root) {
+    let max = -Infinity, maxLevel = 0, curLevel = 0;
+    if (!root) {
+        return 0
+    }
+    let queue = [root];
+    while(queue.length) {
+        curLevel += 1;
+        let sum = 0;
+        const len = queue.length;
+        for (let i=0; i<len; i++) {
+            const curNode = queue[i];
+            sum += curNode.val;
+            if(curNode.left) {
+                queue.push(curNode.left)
+            }
+            if(curNode.right) {
+                queue.push(curNode.right)
+            }
+        }
+        if (sum > max) {
+            max = sum;
+            maxLevel = curLevel
+        }
+        queue.splice(0, len);
+    }
+    return maxLevel
+};
+```

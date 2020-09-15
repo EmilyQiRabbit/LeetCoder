@@ -52,3 +52,21 @@ function findMaxNumIndex(array) {
 ```
 
 ## Advanced
+
+```js
+var constructMaximumBinaryTree = function(nums) {
+    const stk = [];
+    nums.forEach((num) => {
+        const curNode = new TreeNode(num);
+        while (stk.length && stk[stk.length - 1].val < num) {
+            curNode.left = stk[stk.length - 1];
+            stk.pop();
+        }
+        if (stk.length) {
+            stk[stk.length - 1].right = curNode
+        }
+        stk.push(curNode);
+    });
+    return stk[0];
+};
+```

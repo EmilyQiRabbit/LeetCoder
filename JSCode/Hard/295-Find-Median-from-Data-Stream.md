@@ -43,7 +43,7 @@ class PriorityQueue {
     left = i => (i << 1) + 1;
     right = i => (i + 1) << 1;
 
-    constructor(comparator = (a, b) => a > b) {
+    constructor(comparator = (a, b) => a < b) { // 小根堆
         this._heap = [];
         this._comparator = comparator;
     }

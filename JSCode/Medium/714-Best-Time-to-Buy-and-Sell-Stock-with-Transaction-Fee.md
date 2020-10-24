@@ -42,3 +42,12 @@ var maxProfit = function(prices, fee) {
 ## Referenct
 
 [Most consistent ways of dealing with the series of stock problems](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems)
+
+### Other similar Topic
+
+121. Best Time to Buy and Sell Stock
+122. Best Time to Buy and Sell Stock II
+123. Best Time to Buy and Sell Stock III
+188. Best Time to Buy and Sell Stock IV
+309. Best Time to Buy and Sell Stock with Cooldown
+714. Best Time to Buy and Sell Stock with Transaction Fee
